@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://45.84.224.17';
+export const BASE_URL=window.env.BASE_URL;
 
 export const API = {
     TITLE: BASE_URL + '/api/title',
