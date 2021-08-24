@@ -9,6 +9,7 @@ import LetterSelect from "../../../../BaseElements/Inputs/SelectForField/LetterS
 import DateField from "../../../../BaseElements/Inputs/DateField/DateField";
 import CatSelect from "../../../../BaseElements/Inputs/SelectForField/CatSelect/CatSelect";
 import {litterUpdater} from "../AdminLittersPage";
+import apiRequest from '../../../../../services/api_connect'
 
 class LitterEditForm extends Component {
 
@@ -55,19 +56,19 @@ class LitterEditForm extends Component {
                     })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
-                        Axios.put(API.LITTER(this.props.litter.id), values).then(() => {
+                        apiRequest(API.LITTER(this.props.litter.id), { data: values },'PUT').then(() => {
                             litterUpdater();
                             this.props.modal.closeModal();
                         }).catch((e) => {
-                            console.log(e);
+                            console.error(e);
                             alert("Произошла ошибка при обновлении");
                         });
                     } else {
-                        Axios.post(API.LITTER(), values).then(() => {
+                        apiRequest(API.LITTER(), { data: values }, 'POST').then(() => {
                             litterUpdater();
                             this.props.modal.closeModal();
                         }).catch((e) => {
-                            console.log(e);
+                            console.error(e);
                             alert("Произошла ошибка при создании");
                         });
                     }

@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
 import {API} from "../../../../const";
 import "./CatSlider.css";
+import apiRequest from '../../../../services/api_connect'
 
 class CatSlider extends Component {
     constructor(props) {
@@ -14,10 +15,9 @@ class CatSlider extends Component {
 
     loadCats() {
         let self = this;
-        Axios.post(API.CAT(), {limit: 5}).then(
+        apiRequest(API.CAT(), { data: { limit: 5 } }, 'POST').then(
             function (data) {
                 self.setState({cats: data.data});
-                console.log(self.state);
             }
         );
     }

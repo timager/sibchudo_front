@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Axios from "axios";
 import SelectForField from "../SelectForField";
 import {API} from "../../../../../const";
+import apiRequest from '../../../../../services/api_connect'
 
 class GenderSelect extends Component {
 
@@ -17,7 +18,7 @@ class GenderSelect extends Component {
     }
 
     loadOptions() {
-        Axios.get(API.GENDER).then((response) => {
+        apiRequest(API.GENDER).then((response) => {
             this.setState({
                 options: response.data.map((gender) => {
                     return {value: gender.value, label: gender.name}

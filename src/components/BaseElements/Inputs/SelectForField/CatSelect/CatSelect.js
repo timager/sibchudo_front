@@ -3,6 +3,7 @@ import SelectForField from "../SelectForField";
 import Axios from "axios";
 import {getCatFullName} from "../../../Cat/CatName/CatName";
 import {API} from "../../../../../const";
+import apiRequest from '../../../../../services/api_connect'
 
 class CatSelect extends Component {
 
@@ -19,7 +20,7 @@ class CatSelect extends Component {
 
     loadOptions() {
         let params = this.props.params ? this.props.params : {};
-        Axios.get(API.CAT(), {
+        apiRequest(API.CAT(), {
             params: params
         }).then((response) => {
             let options = response.data.map((cat) => {

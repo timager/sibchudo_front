@@ -3,6 +3,7 @@ import SelectForField from "../SelectForField";
 import Axios from "axios";
 import {getCatFullName} from "../../../Cat/CatName/CatName";
 import {API} from "../../../../../const";
+import apiRequest from '../../../../../services/api_connect'
 
 class LitterSelect extends Component {
 
@@ -18,7 +19,7 @@ class LitterSelect extends Component {
     }
 
     loadOptions() {
-        Axios.get(API.LITTER(), {params: {order: {birthday: "desc"}}}).then((response) => {
+        apiRequest(API.LITTER(), {params: {order: {birthday: "desc"}}}).then((response) => {
             this.setState({
                 options: response.data.map((litter) => {
                     let label = "Помет(" + litter.letter + ") ";

@@ -9,7 +9,7 @@ export function getCatFullName(cat) {
         fullNameArray.push(cat.title.code);
     }
     fullNameArray.push(cat.name);
-    fullNameArray.push(cat.litter.community.name);
+    fullNameArray.push(cat.litter?.community.name);
     if (cat.community) {
         fullNameArray.push(" из питомника " + cat.community.name);
     }

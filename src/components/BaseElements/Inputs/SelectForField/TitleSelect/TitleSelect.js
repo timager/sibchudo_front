@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Axios from "axios";
 import SelectForField from "../SelectForField";
 import {API} from "../../../../../const";
+import apiRequest from '../../../../../services/api_connect'
 
 class TitleSelect extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class TitleSelect extends Component {
     }
 
     loadOptions() {
-        Axios.get(API.TITLE).then((response) => {
+        apiRequest(API.TITLE).then((response) => {
             let options = response.data.map((title) => {
                 return {value: title.id, label: title.nameRU}
             });

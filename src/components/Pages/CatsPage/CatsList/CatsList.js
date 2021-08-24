@@ -6,6 +6,7 @@ import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons"
 import Axios from "axios";
 import "./CatsList.css";
 import {API} from "../../../../const";
+import apiRequest from '../../../../services/api_connect'
 
 class CatsList extends Component {
 
@@ -20,12 +21,12 @@ class CatsList extends Component {
 
     loadCats() {
         let self = this;
-        Axios.get(API.CAT('count')).then(
+        apiRequest(API.CAT('count')).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countCatOnPage)
                 });
-                Axios.get(API.CAT(), {
+                apiRequest(API.CAT(), {
                     params: {
                         limit: self.props.countCatOnPage,
                         offset: self.state.offset,

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Axios from "axios";
 import SelectForField from "../SelectForField";
 import {API} from "../../../../../const";
+import apiRequest from '../../../../../services/api_connect'
 
 
 class CommunitySelect extends Component {
@@ -17,7 +18,7 @@ class CommunitySelect extends Component {
     }
 
     loadOptions() {
-        Axios.get(API.COMMUNITY).then((response) => {
+        apiRequest(API.COMMUNITY).then((response) => {
             let options = response.data.map((community) => {
                 return {value: community.id, label: community.name}
             });

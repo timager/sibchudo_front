@@ -12,7 +12,7 @@ export const API = {
     GENDER: BASE_URL + '/api/gender',
     BREED: BASE_URL + '/api/breed',
     CLASS: BASE_URL + '/api/class',
-    LOGIN: BASE_URL + '/api/login',
+    LOGIN: BASE_URL + '/api/session',
     COLOR_CODE: BASE_URL + '/api/color_code',
     STATUS: BASE_URL + '/api/status',
     OWNER: BASE_URL + '/api/owner',

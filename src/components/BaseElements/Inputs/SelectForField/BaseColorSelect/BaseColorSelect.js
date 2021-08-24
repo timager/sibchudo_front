@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Axios from "axios";
 import SelectForField from "../SelectForField";
 import {API} from "../../../../../const";
+import apiRequest from '../../../../../services/api_connect'
 
 class BaseColorSelect extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class BaseColorSelect extends Component {
     }
 
     loadOptions() {
-        Axios.get(API.BASE_COLOR).then((response) => {
+        apiRequest(API.BASE_COLOR).then((response) => {
             let options = response.data.map((baseColor) => {
                 return {value: baseColor.id, label: baseColor.nameRU + " (" + baseColor.code + ")"}
             });

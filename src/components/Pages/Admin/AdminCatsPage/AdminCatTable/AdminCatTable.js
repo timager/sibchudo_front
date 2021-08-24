@@ -14,6 +14,7 @@ import "./AdminCatTable.css";
 import CatAge from "../../../../BaseElements/Cat/CatAge/CatAge";
 import CatLink from "../../../../BaseElements/Link/CatLink";
 import {setCatUpdater} from "../AdminCatsPage";
+import apiRequest from '../../../../../services/api_connect'
 
 class AdminCatTable extends Component {
 
@@ -30,12 +31,12 @@ class AdminCatTable extends Component {
 
     loadCats() {
         let self = this;
-        Axios.get(API.CAT("count")).then(
+        apiRequest(API.CAT("count")).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countCatOnPage)
                 });
-                Axios.get(API.CAT(), {
+                apiRequest(API.CAT(), {
                     params: {
                         limit: self.props.countCatOnPage,
                         offset: self.state.offset,

@@ -17,6 +17,7 @@ import Button from "../../../../BaseElements/Button/Button";
 import {API} from "../../../../../const";
 import "./CatEditForm.css";
 import {catUpdater} from "../AdminCatsPage";
+import apiRequest from '../../../../../services/api_connect'
 
 class CatEditForm extends Component {
 
@@ -91,19 +92,19 @@ class CatEditForm extends Component {
                 })}
                 onSubmit={(values, {setSubmitting}) => {
                     if (values.id) {
-                        Axios.put(API.CAT(values.id), values).then(() => {
+                        apiRequest(API.CAT(values.id), {data: values }, 'PUT').then(() => {
                             catUpdater();
                             this.props.modal.closeModal();
                         }).catch((e) => {
-                            console.log(e);
+                            console.error(e);
                             alert("Произошла ошибка при обновлении");
                         });
                     } else {
-                        Axios.post(API.CAT(), values).then(() => {
+                        apiRequest(API.CAT(), {data: values },'POST').then(() => {
                             catUpdater();
                             this.props.modal.closeModal();
                         }).catch((e) => {
-                            console.log(e);
+                            console.error(e);
                             alert("Произошла ошибка при создании");
                         });
                     }

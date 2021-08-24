@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import LitterPreview from "../../../BaseElements/Litter/LitterPreview/LitterPreview";
 import {API} from "../../../../const";
+import apiRequest from '../../../../services/api_connect'
 
 class LittersList extends Component {
     constructor(props) {
@@ -18,12 +19,12 @@ class LittersList extends Component {
 
     loadLitters() {
         let self = this;
-        Axios.get(API.LITTER('count'), {}).then(
+        apiRequest(API.LITTER('count')).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countOnPage)
                 });
-                Axios.get(API.LITTER(), {
+                apiRequest(API.LITTER(), {
                     params: {
                         order: {birthday: "desc"},
                         limit: self.props.countOnPage,

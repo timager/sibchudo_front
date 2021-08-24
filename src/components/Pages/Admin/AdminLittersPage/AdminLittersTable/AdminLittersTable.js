@@ -11,6 +11,7 @@ import CatName from "../../../../BaseElements/Cat/CatName/CatName";
 import LitterToolbar from "../LitterTollbar/LitterToolbar";
 import CatLink from "../../../../BaseElements/Link/CatLink";
 import {setLitterUpdater} from "../AdminLittersPage";
+import apiRequest from '../../../../../services/api_connect'
 
 class AdminLittersTable extends Component {
 
@@ -27,12 +28,12 @@ class AdminLittersTable extends Component {
 
     loadLitters() {
         let self = this;
-        Axios.get(API.LITTER('count')).then(
+        apiRequest(API.LITTER('count')).then(
             function (response) {
                 self.setState({
                     pages: Math.ceil(response.data / self.props.countLitterOnPage)
                 });
-                Axios.get(API.LITTER(), {
+                apiRequest(API.LITTER(), {
                     params: {
                         limit: self.props.countLitterOnPage,
                         offset: self.state.offset,

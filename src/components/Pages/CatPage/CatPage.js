@@ -11,6 +11,7 @@ import CatName from "../../BaseElements/Cat/CatName/CatName";
 import CatAvatar from "../../BaseElements/Cat/CatAvatar/CatAvatar";
 import LitterPreview from "../../BaseElements/Litter/LitterPreview/LitterPreview";
 import {API, BASE_URL} from "../../../const";
+import apiRequest from '../../../services/api_connect'
 
 const catTemplate = {
     name: "...",
@@ -78,14 +79,14 @@ class CatPage extends Component {
 
     loadCat() {
         let self = this;
-        Axios.get(API.CAT(this.props.match.params.id)).then(function (result) {
+        apiRequest(API.CAT(this.props.match.params.id)).then(function (result) {
             if (result.data != null) {
                 self.setState({cat: result.data});
             } else {
                 document.location.href = "/404";
             }
         }).catch((e) => {
-            console.log(e);
+            console.error(e);
         });
     }
 }

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import SelectForField from "../SelectForField";
 import Axios from "axios";
 import {API} from "../../../../../const";
+import apiRequest from '../../../../../services/api_connect'
 
 class StatusSelect extends Component {
 
@@ -17,7 +18,7 @@ class StatusSelect extends Component {
     }
 
     loadOptions() {
-        Axios.get(API.STATUS).then((response) => {
+        apiRequest(API.STATUS).then((response) => {
             this.setState({
                 options: response.data.map((status) => {
                     return {value: status.id, label: status.nameRU}

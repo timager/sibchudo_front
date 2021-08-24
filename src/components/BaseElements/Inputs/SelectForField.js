@@ -3,7 +3,6 @@ import Select from "react-select";
 
 class SelectForField extends Component {
     render() {
-        console.log(this.props);
         return (
             <Select
                 options={this.props.options}

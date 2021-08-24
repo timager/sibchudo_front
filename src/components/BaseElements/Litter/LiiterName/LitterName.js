@@ -7,7 +7,6 @@ class LitterName extends Component {
         if(!this.props.litter.id){
             return "..."
         }else {
-            console.log(this.props.litter);
             return (
                 <>
                     Помет "{this.props.litter.letter}" (<CatAge withoutAge={true}

@@ -7,6 +7,7 @@ import LitterName from "../../BaseElements/Litter/LiiterName/LitterName";
 import CatPreview from "../../BaseElements/Cat/CatPreview/CatPreview";
 import CatTable from "../../BaseElements/Cat/CatTable/CatTable";
 import {API} from "../../../const";
+import apiRequest from '../../../services/api_connect'
 
 
 const litterTemplate = {
@@ -65,10 +66,10 @@ class LitterPage extends Component {
 
     loadLitter() {
         let self = this;
-        Axios.get(API.LITTER(this.props.match.params.id)).then(function (result) {
+        apiRequest(API.LITTER(this.props.match.params.id)).then(function (result) {
             if (result.data != null) {
                 self.setState({litter: result.data});
-                Axios.get(API.CAT(), {
+                apiRequest(API.CAT(), {
                     params: {
                         criteria: {
                             litter: {

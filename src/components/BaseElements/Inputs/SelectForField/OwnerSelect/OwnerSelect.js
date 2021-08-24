@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Axios from "axios";
 import SelectForField from "../SelectForField";
 import {API} from "../../../../../const";
+import apiRequest from '../../../../../services/api_connect'
 
 class OwnerSelect extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class OwnerSelect extends Component {
     }
 
     loadOptions() {
-        Axios.get(API.OWNER).then((response) => {
+        apiRequest(API.OWNER).then((response) => {
             let options = response.data.map((owner) => {
                 return {value: owner.id, label: owner.name}
             });
