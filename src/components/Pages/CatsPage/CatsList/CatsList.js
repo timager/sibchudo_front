@@ -31,26 +31,28 @@ class CatsList extends Component {
 
   loadCats () {
     let self = this
-    apiRequest(API.CAT('count')).then(
+    let params = {
+      limit: self.props.countCatOnPage,
+      offset: self.state.offset,
+      sort: JSON.parse(self.state.sort),
+      search: {},
+    }
+    if (self.state.query) {
+      params.search['c.name'] = self.state.query
+    }
+    if (self.state.onlyFemale) {
+      params.search['c.gender'] = 'female'
+    }
+    if (self.state.onlyMale) {
+      params.search['c.gender'] = 'male'
+    }
+    apiRequest(API.CAT('count'), {
+      params: params,
+    }).then(
       function (response) {
         self.setState({
           pages: Math.ceil(response.data / self.props.countCatOnPage),
         })
-        let params = {
-          limit: self.props.countCatOnPage,
-          offset: self.state.offset,
-          sort: JSON.parse(self.state.sort),
-          search: {},
-        }
-        if (self.state.query) {
-          params.search['c.name'] = self.state.query
-        }
-        if (self.state.onlyFemale) {
-          params.search['c.gender'] = 'female'
-        }
-        if (self.state.onlyMale) {
-          params.search['c.gender'] = 'male'
-        }
         apiRequest(API.CAT(), {
           params: params,
         }).then(
