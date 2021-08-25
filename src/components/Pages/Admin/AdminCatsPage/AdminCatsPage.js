@@ -7,7 +7,6 @@ import Button from "../../../BaseElements/Button/Button";
 import "./AdminCatPage.css";
 import {ModalContext} from "../../../App/App";
 import CatEditForm from "./CatEditForm/CatEditForm";
-import SearchRow from "../../../BaseElements/SearchRow/SearchRow";
 
 export let catUpdater = () => {};
 export let setCatUpdater = (newCatUpdater) => {
@@ -34,7 +33,6 @@ class AdminCatsPage extends Component {
                             modal.openModal(<CatEditForm modal={modal}/>)
                         }} color={"green"}>Добавить животное</Button>
                     </div>
-                    <SearchRow/>
                     <AdminCatTable
                         formState={this.state.formState}
                         openEditModal={(cat) => {
