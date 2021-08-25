@@ -59,7 +59,9 @@ class LittersList extends Component {
 
   componentDidUpdate (prevProps, prevState, snapshot) {
     if (JSON.stringify(prevProps) !== JSON.stringify(this.props) ||
-      JSON.stringify(prevState) !== JSON.stringify(this.state)) {
+      this.state.mother !== prevState.mother ||
+      this.state.father !== prevState.father ||
+      this.state.sort !== prevState.sort) {
       this.loadLitters()
     }
   }

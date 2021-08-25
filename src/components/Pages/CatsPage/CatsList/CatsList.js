@@ -21,7 +21,6 @@ class CatsList extends Component {
       pages: 0,
       offset: 0,
       cats: [],
-      order: null,
       onlyMale: false,
       onlyFemale: false,
       query: null,
@@ -69,8 +68,12 @@ class CatsList extends Component {
   }
 
   componentDidUpdate (prevProps, prevState, snapshot) {
+    console.log(this.state)
     if (JSON.stringify(prevProps) !== JSON.stringify(this.props) ||
-      JSON.stringify(prevState) !== JSON.stringify(this.state)) {
+      this.state.onlyFemale !== prevState.onlyFemale ||
+      this.state.onlyMale !== prevState.onlyMale ||
+      this.state.query !== prevState.query ||
+      this.state.sort !== prevState.sort){
       this.loadCats()
     }
   }
