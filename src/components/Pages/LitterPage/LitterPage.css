@@ -1,3 +1,13 @@
-.litter_parent{
+.litter_parent {
     display: flex;
+}
+
+.search_row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.search_row > * {
+    padding: 10px;
 }

@@ -1,8 +1,0 @@
-.search_row{
-    display: flex;
-    justify-content: center;
-}
-
-.search_row>* {
-    margin: 5px;
-}

@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import AbstractPage from "../AbstractPage/AbstractPage";
-import Axios from "axios";
 import TitleH2 from "../../BaseElements/TitleH2/TitleH2";
 import "./LitterPage.css";
 import LitterName from "../../BaseElements/Litter/LiiterName/LitterName";
@@ -71,12 +70,7 @@ class LitterPage extends Component {
                 self.setState({litter: result.data});
                 apiRequest(API.CAT(), {
                     params: {
-                        criteria: {
-                            litter: {
-                                sign: "=",
-                                value: result.data.id
-                            }
-                        }
+                        search: {"l.id": result.data.id}
                     }
                 }).then(
                     function (kittensData) {

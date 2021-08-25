@@ -79,7 +79,7 @@ class CatsList extends Component {
     return (
       <>
         <div className={'search_row'}>
-          <input placeholder={'Поиск'}
+          <input placeholder={'Поиск по имени'}
                  onChange={(e) => this.setState({
                    query: e.target.value.length >= 3
                      ? e.target.value
