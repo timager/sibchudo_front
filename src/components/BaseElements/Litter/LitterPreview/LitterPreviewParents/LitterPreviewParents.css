@@ -1,3 +1,13 @@
-.litter_preview_parents_cat_name{
+.litter_preview_parents_cat_name {
     font-weight: bold;
+}
+
+.litter_preview_parents {
+    display: flex;
+}
+
+@media (max-width: 1000px) {
+    .litter_preview_parents_cat_name {
+        font-weight: normal;
+    }
 }

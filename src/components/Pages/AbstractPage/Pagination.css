@@ -1,4 +1,4 @@
-.pagination{
+.pagination {
     text-align: center;
 }
 
@@ -32,7 +32,23 @@
     border: none !important;
 }
 
-.break-me > a:hover{
+.break-me > a:hover {
     background: none !important;
     color: inherit !important;
+}
+
+@media (max-width: 1000px) {
+    .pagination > li {
+        display: none;
+    }
+
+    .previous, .next, .active {
+        display: inline-block !important;
+    }
+
+    .pagination > li > a:hover {
+        color: black;
+        background-color: white;
+    }
+
 }

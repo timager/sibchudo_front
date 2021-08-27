@@ -3,3 +3,11 @@
     padding: 10px;
     max-width: 250px;
 }
+
+.cat_preview_info {
+    margin: 10px auto;
+}
+
+.cat_preview_name {
+    font-weight: bold;
+}

@@ -1,27 +1,23 @@
-import React, {Component} from "react";
-import CatName from "../../../Cat/CatName/CatName";
-import CatColor from "../../../Cat/CatColor/CatColor";
-import "./LitterPreviewParents.css";
+import React, { Component } from 'react'
+import CatName from '../../../Cat/CatName/CatName'
+import './LitterPreviewParents.css'
 
 class LitterPreviewParents extends Component {
-    render() {
-        let mother = this.props.litter.mother;
-        let father = this.props.litter.father;
-        return (
-            <div>
-                <p>
-                    <CatName className={"litter_preview_parents_cat_name"} cat={mother}/>
-                    <br/>
-                    <CatColor color={mother ? mother.color : null}/>
-                </p>
-                <p>
-                    <CatName className={"litter_preview_parents_cat_name"} cat={father}/>
-                    <br/>
-                    <CatColor color={father ? father.color : null}/>
-                </p>
-            </div>
-        );
-    }
+  render () {
+    let mother = this.props.litter.mother
+    let father = this.props.litter.father
+    return (
+      <div className={'litter_preview_parents'}>
+        <span>
+          Мать: <CatName className={'litter_preview_parents_cat_name'}
+                         cat={mother}/>
+          <br/>
+          Отец: <CatName className={'litter_preview_parents_cat_name'}
+                         cat={father}/>
+        </span>
+      </div>
+    )
+  }
 }
 
-export default LitterPreviewParents;
+export default LitterPreviewParents

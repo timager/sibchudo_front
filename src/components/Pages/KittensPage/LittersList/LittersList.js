@@ -111,8 +111,8 @@ class LittersList extends Component {
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}
           pageCount={this.state.pages}
-          pageRangeDisplayed={3}
-          marginPagesDisplayed={2}/>
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={1}/>
       </>
     )
   }
