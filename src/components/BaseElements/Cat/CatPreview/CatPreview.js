@@ -12,7 +12,7 @@ class CatPreview extends Component {
         <CatAvatar clickable cat={this.props.cat}/>
         {Toolbar ? <Toolbar {...this.props}/> : ''}
         <div className={'cat_preview_info'}>
-          <CatName cat={this.props.cat} className={'cat_preview_name'}/>
+          <CatName cat={this.props.cat}/>
           <p>Окрас: <CatColor
             color={(this.props.cat) ? (this.props.cat.color) : null}/></p>
         </div>

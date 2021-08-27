@@ -9,8 +9,16 @@
 }
 
 @media (max-width: 720px) {
-    .search_row{
+    .search_row {
         flex-direction: column;
+    }
+
+    .litter_parent {
+        flex-direction: column;
+    }
+
+    .litter_parent .cat_avatar {
+        height: auto;
     }
 }
 

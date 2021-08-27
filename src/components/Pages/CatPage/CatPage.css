@@ -6,16 +6,13 @@
     justify-content: space-evenly;
 }
 
-.cat_info_container > div{
-    max-width: 50%;
-}
-
-.media{
+.media {
     display: flex;
     flex-wrap: wrap;
 }
 
-.media > *{
+.media > * {
+    flex: 1;
     width: 400px;
     margin: 10px;
 }
@@ -23,4 +20,25 @@
 .cat_info_container > div > img {
     width: 300px;
     height: auto;
+}
+
+@media (max-width: 1000px) {
+    .cat_info_container {
+        flex-direction: column-reverse;
+        margin-top: 0;
+    }
+
+    .cat_info_container .cat_avatar {
+        width: auto;
+        height: auto;
+    }
+
+    .media > * {
+        width: 100%;
+    }
+}
+
+.responsiveTable td.pivoted:last-child {
+    padding-left: 0 !important;
+    margin: 10px;
 }

@@ -17,7 +17,7 @@ class CatInfo extends Component {
         }
         return (
             <div>
-                <h2>Информация о животном</h2><br/>
+                <h2>Информация о животном</h2>
                 {name}
                 {birthday}
                 {gender}
