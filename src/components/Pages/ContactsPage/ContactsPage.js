@@ -23,8 +23,8 @@ class ContactsPage extends Component {
                         <Contact icon={faPhone} text={"+7 (812) 684-58-04"} url={"tel:8(812)684-58-04"}/>
                         <Contact icon={faMailBulk} text={"verliokamaskarad@mail.ru"}
                                  url={"mailto:verliokamaskarad@mail.ru"}/>
-                        <Contact icon={faInstagram} text={"Мы в instagram"}
-                                 url={"https://www.instagram.com/sib.chudo/"}/>
+                        {/*<Contact icon={faInstagram} text={"Мы в instagram"}*/}
+                        {/*         url={"https://www.instagram.com/sib.chudo/"}/>*/}
                         <Contact icon={faVk} text={"Мы в вконтакте"} url={"https://vk.com/sib_chudo"}/>
                     </div>
                 </div>
